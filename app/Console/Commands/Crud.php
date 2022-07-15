@@ -42,12 +42,12 @@ class Crud extends Command
         fopen("resources/views/$user/$filename/show.blade.php", "w") or die("Unable to Create file!");
         $routeFile = file_get_contents('routes/web.php');
         $txt = "Route::resource('$filename', " . ucfirst($filename) . "Controller::class);";
-        $replaced = Str::replace('r:', $txt, $routeFile);
+        $replaced = Str::replace('cr:', $txt, $routeFile);
         $capitalize = ucfirst($filename);
         $char = "\ " . $capitalize . "Controller;";
         $charReplace = Str::replace(' ', '', $char);
         $use = "use App\Http\Controllers" . $charReplace;
-        $replaced = Str::replace('c:', $use, $replaced);
+        $replaced = Str::replace('rt:', $use, $replaced);
         $routeFile = fopen("routes/web.php", "w") or die("Unable to Open file!");
         fwrite($routeFile, $replaced);
         fclose($routeFile);
