@@ -23,6 +23,9 @@ return new class extends Migration
             $table->boolean('status')->default(true);
             $table->boolean('suspend')->default(false);
             $table->string('role')->default("user");
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

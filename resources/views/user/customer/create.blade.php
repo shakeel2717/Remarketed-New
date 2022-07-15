@@ -13,6 +13,9 @@
                         @csrf
                         <x-input name="name" label="Enter Customer Name" type="text" />
                         <x-input name="email" label="Enter Customer Email" type="email" />
+                        <x-input name="phone" label="Enter Customer Phone" type="text" />
+                        <x-input name="address" label="Enter Customer Address" type="text" />
+                        <x-input name="country" label="Enter Customer Country" type="text" />
                         <x-input name="password" label="Type Customer Password" type="password" />
                         <button type="submit" class="btn btn-primary">Add Customer</button>
                     </form>

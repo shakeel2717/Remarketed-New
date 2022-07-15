@@ -13,9 +13,14 @@ final class AllCustomers extends PowerGridComponent
 {
     use ActionButton;
 
-
     public $name;
     public $email;
+    public $phone;
+    public $address;
+    public $country;
+    public $status;
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -48,10 +53,10 @@ final class AllCustomers extends PowerGridComponent
     */
 
     /**
-    * PowerGrid datasource.
-    *
-    * @return Builder<\App\Models\User>
-    */
+     * PowerGrid datasource.
+     *
+     * @return Builder<\App\Models\User>
+     */
     public function datasource(): Builder
     {
         return User::query()->where('user_id', auth()->user()->id)->where('role', 'customer');
@@ -91,6 +96,9 @@ final class AllCustomers extends PowerGridComponent
             ->addColumn('email')
             ->addColumn('status')
             ->addColumn('role')
+            ->addColumn('phone')
+            ->addColumn('address')
+            ->addColumn('country')
             ->addColumn('created_at_formatted', fn (User $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (User $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
     }
@@ -104,7 +112,7 @@ final class AllCustomers extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Columns.
      *
      * @return array<int, Column>
@@ -127,13 +135,30 @@ final class AllCustomers extends PowerGridComponent
             Column::make('STATUS', 'status')
                 ->toggleable(),
 
+            Column::make('PHONE', 'phone')
+                ->sortable()
+                ->searchable()
+                ->editOnClick()
+                ->makeInputText(),
+
+            Column::make('ADDRESS', 'address')
+                ->sortable()
+                ->searchable()
+                ->editOnClick()
+                ->makeInputText(),
+
+            Column::make('COUNTRY', 'country')
+                ->sortable()
+                ->searchable()
+                ->editOnClick()
+                ->makeInputText(),
+
             Column::make('CREATED AT', 'created_at_formatted', 'created_at')
                 ->searchable()
                 ->sortable()
                 ->makeInputDatePicker(),
 
-        ]
-;
+        ];
     }
 
     /*
@@ -144,7 +169,7 @@ final class AllCustomers extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid User Action Buttons.
      *
      * @return array<int, Button>
@@ -155,16 +180,18 @@ final class AllCustomers extends PowerGridComponent
     {
        return [
            Button::make('edit', 'Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+               ->class('btn btn-primary btn-sm')
                ->route('user.edit', ['user' => 'id']),
 
            Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
+               ->class('btn btn-danger btn-sm')
                ->route('user.destroy', ['user' => 'id'])
                ->method('delete')
         ];
     }
     */
+
+
 
     public function onUpdatedEditable(string $id, string $field, string $value): void
     {
@@ -173,13 +200,14 @@ final class AllCustomers extends PowerGridComponent
         ]);
     }
 
-
     public function onUpdatedToggleable(string $id, string $field, string $value): void
     {
         User::query()->find($id)->update([
             $field => $value,
         ]);
     }
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -189,7 +217,7 @@ final class AllCustomers extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid User Action Rules.
      *
      * @return array<int, RuleActions>
