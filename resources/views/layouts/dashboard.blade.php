@@ -380,7 +380,7 @@
                             <a class="js-nav-tooltip-link nav-link " href="{{ route('user.customer.create') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-user nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add new Customers</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add new</span>
                             </a>
                         </li>
 
@@ -400,11 +400,18 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.supplier.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-neighborhood nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
                                     Suppliers</span>
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.supplier.create') }}" title="Layouts"
+                                data-placement="left">
+                                <i class="tio-neighborhood nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add new</span>
                             </a>
                         </li>
                         <li class="nav-item ">

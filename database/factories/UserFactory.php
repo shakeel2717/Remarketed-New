@@ -22,7 +22,7 @@ class UserFactory extends Factory
             'name' => fake()->name(),
             'email' => fake()->safeEmail(),
             'email_verified_at' => now(),
-            'role' => 'customer',
+            'role' => fake()->randomElement(['customer', 'supplier']),
             'phone' => fake()->phoneNumber(),
             'address' => fake()->address(),
             'country' => fake()->country(),
