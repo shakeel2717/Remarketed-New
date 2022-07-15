@@ -293,10 +293,11 @@
 
 
                                 <div class="dropdown-divider"></div>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item text-truncate pr-2">Logout</button>
+                                </form>
 
-                                <a class="dropdown-item" href="{{ route('logout') }}">
-                                    <span class="text-truncate pr-2" title="Sign out">Sign out</span>
-                                </a>
                             </div>
                         </div>
                     </li>
@@ -329,8 +330,8 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.dashboard.index') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.dashboard.index') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-dashboard nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Dashboard</span>
@@ -368,8 +369,8 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.customer.index') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.customer.index') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-user nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
                                     Customers</span>
@@ -377,16 +378,17 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.customer.create') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.customer.create') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-user nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add new</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add
+                                    new</span>
                             </a>
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.rma.create') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.rma.create') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-publish nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Incoming
                                     RMA</span>
@@ -400,18 +402,19 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.supplier.index') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.supplier.index') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-neighborhood nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
                                     Suppliers</span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.supplier.create') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.supplier.create') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-neighborhood nav-icon"></i>
-                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add new</span>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add
+                                    new</span>
                             </a>
                         </li>
                         <li class="nav-item ">
@@ -430,8 +433,8 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.warehouse.index') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.warehouse.index') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-home nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
                                     Warehouses</span>
@@ -439,8 +442,8 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.warehouse.create') }}" title="Layouts"
-                                data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.warehouse.create') }}"
+                                title="Layouts" data-placement="left">
                                 <i class="tio-home nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add
                                     Warehouses</span>
