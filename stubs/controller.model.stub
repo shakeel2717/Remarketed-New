@@ -57,7 +57,7 @@ class {{ class }} extends Controller
      */
     public function show({{ model }} ${{ modelVariable }})
     {
-        return view('user.{{ model }}.index',[
+        return view('user.{{ model }}.show',[
             '{{ model }}' => ${{ modelVariable }},
         ]);
     }
@@ -68,9 +68,11 @@ class {{ class }} extends Controller
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}
      * @return \Illuminate\Http\Response
      */
-    public function edit(user.{{ model }} ${{ modelVariable }})
+    public function edit({{ model }} ${{ modelVariable }})
     {
-        //
+        return view('user.{{ model }}.edit',[
+            '{{ model }}' => ${{ modelVariable }},
+        ]);
     }
 
     /**
