@@ -79,6 +79,7 @@
     <script src="{{ asset('assets/vendor/jquery-validation/dist/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/select2/dist/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('assets/js/theme.min.js') }}"></script>
+    <x-alert />
 </body>
 
 </html>

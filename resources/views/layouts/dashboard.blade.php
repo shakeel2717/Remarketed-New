@@ -11,21 +11,16 @@
     <link rel="shortcut icon" href="/favi.png">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/vendor/icon-set/style.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('assets/vendor/select2/dist/css/select2.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('assets/vendor/flatpickr/dist/flatpickr.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/select2/dist/css/select2.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/flatpickr/dist/flatpickr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendor/chart.js/dist/Chart.min.css') }}">
-    <link rel="stylesheet"
-        href="{{ asset('assets/vendor/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendor/daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
-    <script src="{{asset('assets/vendor/hs-add-field/dist/hs-add-field.min.js')}}"></script>
+    <script src="{{ asset('assets/vendor/hs-add-field/dist/hs-add-field.min.js') }}"></script>
 </head>
 
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
-    <script
-        src="{{ asset('assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js') }}">
-    </script>
+    <script src="{{ asset('assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js') }}"></script>
     <div id="searchDropdown" class="hs-unfold-content dropdown-unfold search-fullwidth d-md-none">
         <form class="input-group input-group-merge input-group-borderless">
             <div class="input-group-prepend">
@@ -38,7 +33,8 @@
             <div class="input-group-append">
                 <div class="input-group-text">
                     <div class="hs-unfold">
-                        <a class="js-hs-unfold-invoker" href="javascript:;" data-hs-unfold-options='{
+                        <a class="js-hs-unfold-invoker" href="javascript:;"
+                            data-hs-unfold-options='{
                                 "target": "#searchDropdown",
                                 "type": "css-animation",
                                 "animationIn": "fadeIn",
@@ -58,10 +54,9 @@
             <div class="navbar-brand-wrapper">
                 <!-- Logo -->
                 <a class="navbar-brand" href="{{ route('user.dashboard.index') }}" aria-label="Front">
-                    <img class="navbar-brand-logo"
-                        src="{{ asset('assets/svg/logos/logo.svg') }}" alt="Logo">
-                    <img class="navbar-brand-logo-mini"
-                        src="{{ asset('assets/svg/logos/logo-short.svg') }}" alt="Logo">
+                    <img class="navbar-brand-logo" src="{{ asset('assets/svg/logos/logo.svg') }}" alt="Logo">
+                    <img class="navbar-brand-logo-mini" src="{{ asset('assets/svg/logos/logo-short.svg') }}"
+                        alt="Logo">
                 </a>
                 <!-- End Logo -->
             </div>
@@ -88,7 +83,8 @@
                                 </div>
                             </div>
                             <input type="search" class="js-form-search form-control" placeholder="Search in front"
-                                aria-label="Search in front" data-hs-form-search-options='{
+                                aria-label="Search in front"
+                                data-hs-form-search-options='{
                            "clearIcon": "#clearSearchResultsIcon",
                            "dropMenuElement": "#searchDropdownMenu",
                            "dropMenuOffset": 20,
@@ -128,7 +124,8 @@
                         <!-- Search Trigger -->
                         <div class="hs-unfold">
                             <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
-                                href="javascript:;" data-hs-unfold-options='{
+                                href="javascript:;"
+                                data-hs-unfold-options='{
                        "target": "#searchDropdown",
                        "type": "css-animation",
                        "animationIn": "fadeIn",
@@ -145,7 +142,8 @@
                         <!-- Notification -->
                         <div class="hs-unfold">
                             <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
-                                href="javascript:;" data-hs-unfold-options='{
+                                href="javascript:;"
+                                data-hs-unfold-options='{
                        "target": "#notificationDropdown",
                        "type": "css-animation"
                      }'>
@@ -164,8 +162,8 @@
                                 <div class="card-body-height">
                                     <!-- Tab Content -->
                                     <div class="tab-content" id="notificationTabContent">
-                                        <div class="tab-pane fade show active" id="notificationNavOne" role="tabpanel"
-                                            aria-labelledby="notificationNavOne-tab">
+                                        <div class="tab-pane fade show active" id="notificationNavOne"
+                                            role="tabpanel" aria-labelledby="notificationNavOne-tab">
                                             <ul class="list-group list-group-flush navbar-card-list-group">
                                                 <li class="list-group-item custom-checkbox-list-wrapper">
                                                     <div class="row">
@@ -177,7 +175,8 @@
                                                             </div>
                                                         </div>
                                                         <div class="col ml-n3">
-                                                            <p class="card-text font-size-sm">There are no new messages.
+                                                            <p class="card-text font-size-sm">There are no new
+                                                                messages.
                                                                 You're all caught up!</p>
                                                         </div>
                                                     </div>
@@ -204,7 +203,8 @@
                         <!-- Apps -->
                         <div class="hs-unfold">
                             <a class="js-hs-unfold-invoker btn btn-icon btn-ghost-secondary rounded-circle"
-                                href="javascript:;" data-hs-unfold-options='{
+                                href="javascript:;"
+                                data-hs-unfold-options='{
                        "target": "#appsDropdown",
                        "type": "css-animation"
                      }'>
@@ -272,10 +272,8 @@
                                                 alt="Image Description">
                                         </div>
                                         <div class="media-body">
-                                            <span
-                                                class="card-title h5">{{ auth()->user()->name }}</span>
-                                            <span
-                                                class="card-text">{{ auth()->user()->email }}</span>
+                                            <span class="card-title h5">{{ auth()->user()->name }}</span>
+                                            <span class="card-text">{{ auth()->user()->email }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -310,10 +308,10 @@
             <div class="navbar-vertical-footer-offset">
                 <div class="navbar-brand-wrapper justify-content-between">
                     <a class="navbar-brand" href="" aria-label="Front">
-                        <img class="navbar-brand-logo"
-                            src="{{ asset('assets/svg/logos/logo.svg') }}" alt="Logo">
-                        <img class="navbar-brand-logo-mini"
-                            src="{{ asset('assets/svg/logos/logo-short.svg') }}" alt="Logo">
+                        <img class="navbar-brand-logo" src="{{ asset('assets/svg/logos/logo.svg') }}"
+                            alt="Logo">
+                        <img class="navbar-brand-logo-mini" src="{{ asset('assets/svg/logos/logo-short.svg') }}"
+                            alt="Logo">
                     </a>
                     <button type="button"
                         class="js-navbar-vertical-aside-toggle-invoker navbar-vertical-aside-toggle btn btn-icon btn-xs btn-ghost-dark">
@@ -329,8 +327,8 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href=""
-                                title="Layouts" data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                                data-placement="left">
                                 <i class="tio-dashboard nav-icon"></i>
                                 <span
                                     class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Dashboard</span>
@@ -345,8 +343,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link "
-                                href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-dollar nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Sale
@@ -354,8 +351,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link "
-                                href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-document nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Sale
@@ -370,8 +366,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link "
-                                href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-user nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
@@ -380,8 +375,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link "
-                                href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-publish nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Incoming
@@ -396,8 +390,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link "
-                                href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-neighborhood nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
@@ -405,8 +398,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link "
-                                href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-publish nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Outgoing
@@ -421,8 +413,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link "
-                                href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-home nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
@@ -431,8 +422,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link "
-                                href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-home nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add
@@ -446,8 +436,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link "
-                                href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-settings nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Reasons
@@ -463,16 +452,16 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href=""
-                                title="Layouts" data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                                data-placement="left">
                                 <i class="tio-user nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">My
                                     Profile</span>
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href=""
-                                title="Layouts" data-placement="left">
+                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                                data-placement="left">
                                 <i class="tio-lock nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Change
                                     Password</span>
@@ -489,8 +478,8 @@
                         </li>
 
                         <li class="navbar-vertical-aside-has-menu ">
-                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle " href="javascript:;"
-                                title="Dashboards">
+                            <a class="js-navbar-vertical-aside-menu-link nav-link nav-link-toggle "
+                                href="javascript:;" title="Dashboards">
                                 <i class="tio-support nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Service
                                     Client</span>
@@ -498,15 +487,13 @@
 
                             <ul class="js-navbar-vertical-aside-submenu nav nav-sub">
                                 <li class="nav-item">
-                                    <a class="nav-link " href=""
-                                        title="Default">
+                                    <a class="nav-link " href="" title="Default">
                                         <span class="tio-circle nav-indicator-icon"></span>
                                         <span class="text-truncate">In Progress</span>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " href=""
-                                        title="Alternative">
+                                    <a class="nav-link " href="" title="Alternative">
                                         <span class="tio-circle nav-indicator-icon"></span>
                                         <span class="text-truncate">Completed</span>
                                     </a>
@@ -574,80 +561,16 @@
         </div>
     </main>
     <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}">
-    </script>
-    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}">
-    </script>
-    <script
-        src="{{ asset('assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside.min.js') }}">
-    </script>
+    <script src="{{ asset('assets/vendor/jquery-migrate/dist/jquery-migrate.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/hs-unfold/dist/hs-unfold.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/hs-form-search/dist/hs-form-search.min.js') }}">
-    </script>
     <script src="{{ asset('assets/vendor/select2/dist/js/select2.full.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/chart.js/dist/Chart.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/chart.js.extensions/chartjs-extensions.js') }}">
-    </script>
-    <script
-        src="{{ asset('assets/vendor/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.min.js') }}">
-    </script>
-    <script src="{{ asset('assets/vendor/daterangepicker/moment.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/daterangepicker/daterangepicker.js') }}"></script>
-    <script src="{{ asset('assets/vendor/datatables/media/js/jquery.dataTables.min.js') }}">
-    </script>
-    <script src="{{ asset('assets/vendor/datatables.net.extensions/select/select.min.js') }}">
-    </script>
-    <script src="{{ asset('assets/vendor/flatpickr/dist/flatpickr.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/clipboard/dist/clipboard.min.js') }}"></script>
     <script src="{{ asset('assets/js/theme.min.js') }}"></script>
-    <script src="{{ asset('assets/js/hs.flatpickr.js') }}"></script>
-    <script>
-        $(document).on('ready', function () {
-            // INITIALIZATION OF FLATPICKR
-            // =======================================================
-            $('.js-flatpickr').each(function () {
-                $.HSCore.components.HSFlatpickr.init($(this));
-            });
-        });
-
-    </script>
-    <script>
-        $(document).on('ready', function () {
-            $('.js-navbar-vertical-aside-toggle-invoker').click(function () {
-                $('.js-navbar-vertical-aside-toggle-invoker i').tooltip('hide');
-            });
-            var sidebar = $('.js-navbar-vertical-aside').hsSideNav();
-            $('.js-nav-tooltip-link').tooltip({
-                boundary: 'window'
-            })
-
-            $(".js-nav-tooltip-link").on("show.bs.tooltip", function (e) {
-                if (!$("body").hasClass("navbar-vertical-aside-mini-mode")) {
-                    return false;
-                }
-            });
-            $('.js-hs-unfold-invoker').each(function () {
-                var unfold = new HSUnfold($(this)).init();
-            });
-            $('.js-form-search').each(function () {
-                new HSFormSearch($(this)).init()
-            });
-            $('.js-select2-custom').each(function () {
-                var select2 = $.HSCore.components.HSSelect2.init($(this));
-            });
-            Chart.plugins.unregister(ChartDataLabels);
-
-            var start = moment();
-            var end = moment();
-
-            function cb(start, end) {
-                $('#js-daterangepicker-predefined .js-daterangepicker-predefined-preview').html(start.format(
-                    'MMM D') + ' - ' + end.format('MMM D, YYYY'));
-            }
-        });
-
-    </script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
     @yield('footer')
+    <x-alert />
 </body>
 
 </html>
