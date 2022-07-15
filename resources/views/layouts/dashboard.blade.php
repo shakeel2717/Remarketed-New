@@ -329,7 +329,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.dashboard.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-dashboard nav-icon"></i>
                                 <span

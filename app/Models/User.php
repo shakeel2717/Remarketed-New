@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\user\Warehouse;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -46,4 +47,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function customers()
+    {
+        return $this->hasMany(User::class)->where('role', 'customer');
+    }
+
+    public function suppliers()
+    {
+        return $this->hasMany(User::class)->where('role', 'supplier');
+    }
+
+    public function warehouses()
+    {
+        return $this->hasMany(Warehouse::class);
+    }
+
+
+
 }

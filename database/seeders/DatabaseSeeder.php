@@ -25,8 +25,8 @@ class DatabaseSeeder extends Seeder
             'role' => 'user',
         ]);
 
-        Warehouse::factory(50)->create();
-        User::factory(50)->create();
+        Warehouse::factory(10)->create();
+        User::factory(10)->create();
 
     }
 }
