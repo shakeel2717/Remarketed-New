@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('status')->default(true);
             $table->boolean('suspend')->default(false);
+            $table->string('role')->default("user");
             $table->rememberToken();
             $table->timestamps();
         });
