@@ -2,6 +2,7 @@
 
 namespace App\Models\user;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,4 +17,10 @@ class Warehouse extends Model
         'location',
         'status',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

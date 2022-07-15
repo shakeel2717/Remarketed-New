@@ -65,5 +65,11 @@ class User extends Authenticatable
     }
 
 
+    public function rmas()
+    {
+        return $this->hasMany(Rma::class);
+    }
+
+
 
 }

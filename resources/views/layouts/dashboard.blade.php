@@ -385,7 +385,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.rma.create') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-publish nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Incoming
