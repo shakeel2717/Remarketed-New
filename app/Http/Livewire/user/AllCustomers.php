@@ -175,21 +175,22 @@ final class AllCustomers extends PowerGridComponent
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('btn btn-primary btn-sm')
-               ->route('user.edit', ['user' => 'id']),
+        return [
+            Button::make('rma', 'RMA')
+                ->class('btn btn-primary btn-sm')
+                ->target("")
+                ->route('user.customer.show', ['customer' => 'id']),
 
-           Button::make('destroy', 'Delete')
-               ->class('btn btn-danger btn-sm')
-               ->route('user.destroy', ['user' => 'id'])
-               ->method('delete')
+            //    Button::make('destroy', 'Delete')
+            //        ->class('btn btn-danger btn-sm')
+            //        ->route('user.destroy', ['user' => 'id'])
+            //        ->method('delete')
         ];
     }
-    */
+
 
 
 

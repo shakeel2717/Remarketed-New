@@ -65,11 +65,9 @@ class CustomerController extends Controller
      * @param  \App\Models\user\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(User $customer)
     {
-        return view('user.customer.show', [
-            'Customer' => $customer,
-        ]);
+        return view('user.customer.show', compact('customer'));
     }
 
     /**
