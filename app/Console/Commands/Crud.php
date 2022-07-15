@@ -31,7 +31,7 @@ class Crud extends Command
     {
         $command = $this->argument('crud');
         $user = $this->argument('user');
-        Artisan::call('make:model ' . $user . '/' . ucfirst($command) . ' -mcr ');
+        Artisan::call('make:model ' . $user . '/' . ucfirst($command) . ' --all ');
         $filename = $command;
         if (!file_exists('resources/views/' . $user . '/' . $filename)) {
             mkdir('resources/views/' .  $user . '/' . $filename, 0777, true);

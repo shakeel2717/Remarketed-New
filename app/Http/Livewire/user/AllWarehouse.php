@@ -13,6 +13,10 @@ final class AllWarehouse extends PowerGridComponent
 {
     use ActionButton;
 
+    public $name;
+    public $location;
+
+
     /*
     |--------------------------------------------------------------------------
     |  Features Setup
@@ -44,10 +48,10 @@ final class AllWarehouse extends PowerGridComponent
     */
 
     /**
-    * PowerGrid datasource.
-    *
-    * @return Builder<\App\Models\user\Warehouse>
-    */
+     * PowerGrid datasource.
+     *
+     * @return Builder<\App\Models\user\Warehouse>
+     */
     public function datasource(): Builder
     {
         return Warehouse::query();
@@ -82,8 +86,6 @@ final class AllWarehouse extends PowerGridComponent
     public function addColumns(): PowerGridEloquent
     {
         return PowerGrid::eloquent()
-            ->addColumn('id')
-            ->addColumn('user_id')
             ->addColumn('name')
             ->addColumn('location')
             ->addColumn('status')
@@ -100,7 +102,7 @@ final class AllWarehouse extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Columns.
      *
      * @return array<int, Column>
@@ -108,19 +110,15 @@ final class AllWarehouse extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('ID', 'id')
-                ->makeInputRange(),
-
-            Column::make('USER ID', 'user_id')
-                ->makeInputRange(),
-
             Column::make('NAME', 'name')
                 ->sortable()
+                ->editOnClick()
                 ->searchable()
                 ->makeInputText(),
 
             Column::make('LOCATION', 'location')
                 ->sortable()
+                ->editOnClick()
                 ->searchable()
                 ->makeInputText(),
 
@@ -132,13 +130,7 @@ final class AllWarehouse extends PowerGridComponent
                 ->sortable()
                 ->makeInputDatePicker(),
 
-            Column::make('UPDATED AT', 'updated_at_formatted', 'updated_at')
-                ->searchable()
-                ->sortable()
-                ->makeInputDatePicker(),
-
-        ]
-;
+        ];
     }
 
     /*
@@ -149,27 +141,45 @@ final class AllWarehouse extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Warehouse Action Buttons.
      *
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
-               ->route('warehouse.edit', ['warehouse' => 'id']),
+        return [
+            //    Button::make('edit', 'Edit')
+            //        ->class('bg-indigo-500 cursor-pointer text-white px-3 py-2.5 m-1 rounded text-sm')
+            //        ->route('warehouse.edit', ['warehouse' => 'id']),
 
-           Button::make('destroy', 'Delete')
-               ->class('bg-red-500 cursor-pointer text-white px-3 py-2 m-1 rounded text-sm')
-               ->route('warehouse.destroy', ['warehouse' => 'id'])
-               ->method('delete')
+            Button::make('destroy', 'Delete')
+                ->class('btn btn-primary btn-sm')
+                ->emit('deleteWarehouse', ['warehouse' => 'id'])
         ];
     }
-    */
+
+    public function onUpdatedEditable($id, $field, $value): void
+    {
+        $this->validate();
+        Warehouse::query()->find($id)->update([
+            $field => $value,
+        ]);
+    }
+
+    protected function getListeners()
+    {
+        return 'deleteWarehouse';
+    }
+
+    public function deleteWarehouse($warehouse)
+    {
+        dd($warehouse);
+    }
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -179,7 +189,7 @@ final class AllWarehouse extends PowerGridComponent
     |
     */
 
-     /**
+    /**
      * PowerGrid Warehouse Action Rules.
      *
      * @return array<int, RuleActions>
