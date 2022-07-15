@@ -40,13 +40,13 @@ class {{ class }} extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-        // 'test' => 'required|min:4|max:30|exists:admins',
+        // 'test' => 'required',
         ]);
         $task = new {{ model }}();
         $task->test = $validated['test'];
         $task->save();
         // return redirect()->back()->withErrors('Wrong Password, Please try again');
-        // return redirect()->route('pin.index')->with('message', 'Task Completed Successfully');
+        // return redirect()->route('user.{{ model }}.index')->with('success', '{{ model }} Added Successfully');
     }
 
     /**

@@ -22,9 +22,11 @@ class DatabaseSeeder extends Seeder
             'email' => "shakeel2717@gmail.com",
             'password' => Hash::make('asdfasdf'),
             'status' => true,
+            'role' => 'user',
         ]);
 
         Warehouse::factory(50)->create();
+        User::factory(50)->create();
 
     }
 }

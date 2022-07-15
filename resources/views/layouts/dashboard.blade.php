@@ -368,11 +368,19 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.customer.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-user nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
                                     Customers</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item ">
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.customer.create') }}" title="Layouts"
+                                data-placement="left">
+                                <i class="tio-user nav-icon"></i>
+                                <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add new Customers</span>
                             </a>
                         </li>
 
@@ -415,7 +423,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.warehouse.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-home nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All
@@ -424,7 +432,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.warehouse.create') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-home nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add

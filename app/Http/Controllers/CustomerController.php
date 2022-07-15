@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\user\Warehouse;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
-class WarehouseController extends Controller
+class CustomerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class WarehouseController extends Controller
      */
     public function index()
     {
-        $Warehouse = Warehouse::all();
-        return view('user.Warehouse.index', [
-            'Warehouses' => $Warehouse,
+        $Customer = User::all();
+        return view('user.customer.index', [
+            'Customers' => $Customer,
         ]);
     }
 
@@ -27,7 +28,7 @@ class WarehouseController extends Controller
      */
     public function create()
     {
-        return view('user.Warehouse.create');
+        return view('user.customer.create');
     }
 
     /**
@@ -40,42 +41,44 @@ class WarehouseController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'location' => 'required|string|max:255',
+            'email' => 'required|string|email|unique:users',
+            'password' => 'required|string|min:6',
         ]);
-
-        $task = new Warehouse();
+        $task = new User();
         $task->user_id = auth()->user()->id;
         $task->name = $validated['name'];
-        $task->location = $validated['location'];
+        $task->email = $validated['email'];
+        $task->password = Hash::make($validated['password']);
         $task->status = true;
+        $task->role = 'customer';
         $task->save();
 
-        return redirect()->route('user.warehouse.index')->with('success', 'Task Completed Successfully');
+        return redirect()->route('user.customer.index')->with('success', 'Customer Added Successfully');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\user\Warehouse  $warehouse
+     * @param  \App\Models\user\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show(Warehouse $warehouse)
+    public function show(Customer $customer)
     {
-        return view('user.Warehouse.show', [
-            'Warehouse' => $warehouse,
+        return view('user.customer.show', [
+            'Customer' => $customer,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\user\Warehouse  $warehouse
+     * @param  \App\Models\user\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Warehouse $warehouse)
+    public function edit(Customer $customer)
     {
-        return view('user.Warehouse.edit', [
-            'Warehouse' => $warehouse,
+        return view('user.customer.edit', [
+            'Customer' => $customer,
         ]);
     }
 
@@ -83,10 +86,10 @@ class WarehouseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\user\Warehouse  $warehouse
+     * @param  \App\Models\user\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Warehouse $warehouse)
+    public function update(Request $request, Customer $customer)
     {
         //
     }
@@ -94,12 +97,12 @@ class WarehouseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\user\Warehouse  $warehouse
+     * @param  \App\Models\user\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Warehouse $warehouse)
+    public function destroy(Customer $customer)
     {
-        $task = Warehouse::find($warehouse->id);
+        $task = Customer::find($customer->id);
         $task->delete();
         // return redirect()->route('pin.index')->with('message', 'Task Completed Successfully');
     }
