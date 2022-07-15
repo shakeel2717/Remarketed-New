@@ -33,8 +33,8 @@ class Crud extends Command
         $user = $this->argument('user');
         Artisan::call('make:model ' . $command . ' -mcr ');
         $filename = $command;
-        if (!file_exists('resources/views/' . $filename)) {
-            mkdir('resources/views/' . $filename, 0777, true);
+        if (!file_exists('resources/views/' . $user . '/' . $filename)) {
+            mkdir('resources/views/' .  $user . '/' . $filename, 0777, true);
         }
         fopen("resources/views/$user/$filename/index.blade.php", "w") or die("Unable to Create file!");
         fopen("resources/views/$user/$filename/create.blade.php", "w") or die("Unable to Create file!");
