@@ -16,7 +16,7 @@ class {{ class }} extends Controller
     public function index()
     {
         ${{ model }} = {{ model }}::all();
-        return view('{{ model }}.index',[
+        return view('user.{{ model }}.index',[
             '{{ model }}s' => ${{ model }},
         ]);
     }
@@ -28,7 +28,7 @@ class {{ class }} extends Controller
      */
     public function create()
     {
-        return view('{{ model }}.create');
+        return view('user.{{ model }}.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class {{ class }} extends Controller
      */
     public function show({{ model }} ${{ modelVariable }})
     {
-        return view('{{ model }}.index',[
+        return view('user.{{ model }}.index',[
             '{{ model }}' => ${{ modelVariable }},
         ]);
     }
@@ -68,7 +68,7 @@ class {{ class }} extends Controller
      * @param  \{{ namespacedModel }}  ${{ modelVariable }}
      * @return \Illuminate\Http\Response
      */
-    public function edit({{ model }} ${{ modelVariable }})
+    public function edit(user.{{ model }} ${{ modelVariable }})
     {
         //
     }
