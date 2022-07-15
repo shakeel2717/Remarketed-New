@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/daterangepicker/daterangepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
     <script src="{{ asset('assets/vendor/hs-add-field/dist/hs-add-field.min.js') }}"></script>
+    @livewireStyles
+    @powerGridStyles
 </head>
 
 <body class="has-navbar-vertical-aside navbar-vertical-aside-show-xl   footer-offset">
@@ -571,6 +573,8 @@
     <script src="{{ asset('assets/js/custom.js') }}"></script>
     @yield('footer')
     <x-alert />
+    @livewireScripts
+    @powerGridScripts
 </body>
 
 </html>

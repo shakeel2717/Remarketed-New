@@ -31,7 +31,7 @@ class Crud extends Command
     {
         $command = $this->argument('crud');
         $user = $this->argument('user');
-        Artisan::call('make:model ' . ucfirst($command) . ' -mcr ');
+        Artisan::call('make:model ' . $user . '/' . ucfirst($command) . ' -mcr ');
         $filename = $command;
         if (!file_exists('resources/views/' . $user . '/' . $filename)) {
             mkdir('resources/views/' .  $user . '/' . $filename, 0777, true);
@@ -42,12 +42,12 @@ class Crud extends Command
         fopen("resources/views/$user/$filename/show.blade.php", "w") or die("Unable to Create file!");
         $routeFile = file_get_contents('routes/web.php');
         $txt = "Route::resource('$filename', " . ucfirst($filename) . "Controller::class);";
-        $replaced = Str::replace('cr:', $txt, $routeFile);
+        $replaced = Str::replace('rt:', $txt, $routeFile);
         $capitalize = ucfirst($filename);
         $char = "\ " . $capitalize . "Controller;";
         $charReplace = Str::replace(' ', '', $char);
         $use = "use App\Http\Controllers" . $charReplace;
-        $replaced = Str::replace('rt:', $use, $replaced);
+        $replaced = Str::replace('cr:', $use, $replaced);
         $routeFile = fopen("routes/web.php", "w") or die("Unable to Open file!");
         fwrite($routeFile, $replaced);
         fclose($routeFile);
