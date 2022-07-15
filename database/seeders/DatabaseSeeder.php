@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $user = User::updateOrCreate([
-            'name' => "Shakeel Ahmad",
-            'email' => "shakeel2717@gmail.com",
+            'name' => "Test Account",
+            'email' => "test@test.com",
             'password' => Hash::make('asdfasdf'),
             'status' => true,
             'role' => 'user',
