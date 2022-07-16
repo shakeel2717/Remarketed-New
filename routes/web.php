@@ -8,6 +8,7 @@ use App\Http\Controllers\RmaController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\RefundController;
+use App\Http\Controllers\OrderController;
 
 Route::redirect('/', 'login');
 Route::prefix('user')->middleware('auth', 'user')->name('user.')->group(function () {
@@ -18,6 +19,7 @@ Route::prefix('user')->middleware('auth', 'user')->name('user.')->group(function
     Route::resource('rma', RmaController::class);
     Route::resource('inventory', InventoryController::class);
     Route::resource('refund', RefundController::class);
+    Route::resource('order', OrderController::class);
 });
 
 require __DIR__ . '/auth.php';

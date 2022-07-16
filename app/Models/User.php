@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\user\Inventory;
+use App\Models\user\Order;
 use App\Models\user\Refund;
 use App\Models\user\Warehouse;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -91,5 +92,17 @@ class User extends Authenticatable
     public function customerRefunds()
     {
         return $this->hasMany(Refund::class, 'customer_id');
+    }
+
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+
+    public function customerorders()
+    {
+        return $this->hasMany(Order::class, 'customer_id');
     }
 }

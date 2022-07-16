@@ -346,7 +346,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.order.create') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-dollar nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add Sale
@@ -354,7 +354,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="js-nav-tooltip-link nav-link " href="" title="Layouts"
+                            <a class="js-nav-tooltip-link nav-link " href="{{ route('user.order.index') }}" title="Layouts"
                                 data-placement="left">
                                 <i class="tio-document nav-icon"></i>
                                 <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All Sale
