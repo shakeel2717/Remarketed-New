@@ -7,8 +7,9 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\RmaController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\RefundController;
 
-Route::redirect('/','login');
+Route::redirect('/', 'login');
 Route::prefix('user')->middleware('auth', 'user')->name('user.')->group(function () {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('warehouse', WarehouseController::class);
@@ -16,6 +17,7 @@ Route::prefix('user')->middleware('auth', 'user')->name('user.')->group(function
     Route::resource('supplier', SupplierController::class);
     Route::resource('rma', RmaController::class);
     Route::resource('inventory', InventoryController::class);
+    Route::resource('refund', RefundController::class);
 });
 
 require __DIR__ . '/auth.php';
