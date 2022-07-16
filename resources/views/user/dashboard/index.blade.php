@@ -11,5 +11,8 @@
         <div class="col-md-3">
             <x-box heading="All Warehouses" value="{{ auth()->user()->warehouses()->count() }}" />
         </div>
+        <div class="col-md-3">
+            <x-box heading="All RMAs" value="{{ auth()->user()->rmas()->count() }}" />
+        </div>
     </div>
 @endsection
