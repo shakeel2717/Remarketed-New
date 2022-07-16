@@ -95,12 +95,11 @@ final class CustomerRma extends PowerGridComponent
     public function addColumns(): PowerGridEloquent
     {
         return PowerGrid::eloquent()
-            ->addColumn('id')
-            ->addColumn('customer_id')
-            ->addColumn('supplier_id')
+            ->addColumn('customer_name', function ($model) {
+                return "<a href=" . route('user.customer.show', ['customer' => $model->customer->id]) . ">" . $model->customer->name . "</a>";
+            })
             ->addColumn('warehouse_id')
             ->addColumn('status')
-            ->addColumn('type')
             ->addColumn('created_at_formatted', fn (Rma $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Rma $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
     }
@@ -153,21 +152,22 @@ final class CustomerRma extends PowerGridComponent
      * @return array<int, Button>
      */
 
-    /*
+
     public function actions(): array
     {
-       return [
-           Button::make('edit', 'Edit')
-               ->class('btn btn-primary btn-sm')
-               ->route('rma.edit', ['rma' => 'id']),
+        return [
+            //    Button::make('edit', 'Edit')
+            //        ->class('btn btn-primary btn-sm')
+            //        ->route('rma.edit', ['rma' => 'id']),
 
-           Button::make('destroy', 'Delete')
-               ->class('btn btn-danger btn-sm')
-               ->route('rma.destroy', ['rma' => 'id'])
-               ->method('delete')
+            Button::make('destroy', 'View Detail')
+                ->class('btn btn-primary btn-sm')
+                ->target("")
+                ->route('user.rma.show', ['rma' => 'id'])
+
         ];
     }
-    */
+
 
 
 
