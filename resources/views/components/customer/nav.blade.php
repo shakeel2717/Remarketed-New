@@ -32,4 +32,15 @@
             <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Refunds</span>
         </a>
     </li>
+    <li class="nav-item">
+        <small class="nav-subtitle" title="Layouts">My RMAs</small>
+        <small class="tio-more-horizontal nav-subtitle-replacer"></small>
+    </li>
+    <li class="nav-item ">
+        <a class="js-nav-tooltip-link nav-link " href="{{ route('customer.rma.index') }}" title="Layouts"
+            data-placement="left">
+            <i class="tio-dashboard nav-icon"></i>
+            <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">All RMAs</span>
+        </a>
+    </li>
 </ul>
