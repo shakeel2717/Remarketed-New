@@ -40,7 +40,7 @@ class Crud extends Command
         fopen("resources/views/$user/$filename/create.blade.php", "w") or die("Unable to Create file!");
         fopen("resources/views/$user/$filename/edit.blade.php", "w") or die("Unable to Create file!");
         fopen("resources/views/$user/$filename/show.blade.php", "w") or die("Unable to Create file!");
-        $routeFile = file_get_contents('routes/web.php');
+        $routeFile = file_get_contents('routes/customer.php');
         $txt = "Route::resource('$filename', " . ucfirst($filename) . "Controller::class);";
         $replaced = Str::replace('rt:', $txt, $routeFile);
         $capitalize = ucfirst($filename);
@@ -48,7 +48,7 @@ class Crud extends Command
         $charReplace = Str::replace(' ', '', $char);
         $use = "use App\Http\Controllers" . $charReplace;
         $replaced = Str::replace('cr:', $use, $replaced);
-        $routeFile = fopen("routes/web.php", "w") or die("Unable to Open file!");
+        $routeFile = fopen("routes/customer.php", "w") or die("Unable to Open file!");
         fwrite($routeFile, $replaced);
         fclose($routeFile);
         return Command::SUCCESS;

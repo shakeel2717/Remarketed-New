@@ -16,7 +16,7 @@ class {{ class }} extends Controller
     public function index()
     {
         ${{ model }} = {{ model }}::all();
-        return view('user.{{ model }}.index',[
+        return view('customer.{{ model }}.index',[
             '{{ model }}s' => ${{ model }},
         ]);
     }
@@ -28,7 +28,7 @@ class {{ class }} extends Controller
      */
     public function create()
     {
-        return view('user.{{ model }}.create');
+        return view('customer.{{ model }}.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class {{ class }} extends Controller
         $task->test = $validated['test'];
         $task->save();
         // return redirect()->back()->withErrors('Wrong Password, Please try again');
-        // return redirect()->route('user.{{ model }}.index')->with('success', '{{ model }} Added Successfully');
+        // return redirect()->route('customer.{{ model }}.index')->with('success', '{{ model }} Added Successfully');
     }
 
     /**
@@ -57,7 +57,7 @@ class {{ class }} extends Controller
      */
     public function show({{ model }} ${{ modelVariable }})
     {
-        return view('user.{{ model }}.show',[
+        return view('customer.{{ model }}.show',[
             '{{ model }}' => ${{ modelVariable }},
         ]);
     }
@@ -70,7 +70,7 @@ class {{ class }} extends Controller
      */
     public function edit({{ model }} ${{ modelVariable }})
     {
-        return view('user.{{ model }}.edit',[
+        return view('customer.{{ model }}.edit',[
             '{{ model }}' => ${{ modelVariable }},
         ]);
     }

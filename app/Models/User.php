@@ -74,6 +74,12 @@ class User extends Authenticatable
     }
 
 
+    public function customerRmas()
+    {
+        return $this->hasMany(Rma::class, 'customer_id');
+    }
+
+
     public function inventories()
     {
         return $this->hasMany(Inventory::class);

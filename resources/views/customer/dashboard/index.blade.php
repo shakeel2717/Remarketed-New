@@ -3,16 +3,16 @@
 @section('content')
     <div class="row">
         <div class="col-md-3">
-            <x-box heading="All Customers" value="{{ auth()->user()->customers()->count() }}" />
+            <x-box heading="My Sales Order" value="{{ auth()->user()->customerorders()->count() }}" />
         </div>
         <div class="col-md-3">
-            <x-box heading="All Supplier" value="{{ auth()->user()->suppliers()->count() }}" />
+            <x-box heading="All Refunds" value="{{ auth()->user()->customerRefunds()->count() }}" />
         </div>
         <div class="col-md-3">
-            <x-box heading="All Warehouses" value="{{ auth()->user()->warehouses()->count() }}" />
+            <x-box heading="All Inventories" value="{{ auth()->user()->customerInventories()->count() }}" />
         </div>
         <div class="col-md-3">
-            <x-box heading="All RMAs" value="{{ auth()->user()->rmas()->count() }}" />
+            <x-box heading="All RMAs" value="{{ auth()->user()->customerRmas()->count() }}" />
         </div>
     </div>
 @endsection
