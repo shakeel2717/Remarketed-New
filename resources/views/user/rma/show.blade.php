@@ -5,11 +5,11 @@
         <div class="col-sm-6 col-lg-3 mb-3 mb-lg-5">
             <div class="card h-100">
                 <div class="card-body">
-                    <h6 class="card-subtitle mb-2">TOTAL REFUND</h6>
+                    <h6 class="card-subtitle mb-2">TOTAL TO REFUND</h6>
 
                     <div class="row align-items-center gx-2">
                         <div class="col">
-                            <span class="js-counter display-4 text-dark" data-value="24">0</span>
+                            <span class="js-counter display-4 text-dark" data-value="24">{{ $rma->customer->customerRefunds->sum('amount') }}</span>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
 
                     <div class="row align-items-center gx-2">
                         <div class="col">
-                            <span class="js-counter display-4 text-dark" data-value="24">0</span>
+                            <span class="js-counter display-4 text-dark" data-value="24">{{ $rma->customer->customerInventories->sum('price') }}</span>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
 
                     <div class="row align-items-center gx-2">
                         <div class="col">
-                            <span class="js-counter display-4 text-dark" data-value="24">0</span>
+                            <span class="js-counter display-4 text-dark" data-value="24">{{ $rma->customer->customerInventories->sum('price') - $rma->customer->customerRefunds->sum('amount') }}</span>
                         </div>
                     </div>
                 </div>
