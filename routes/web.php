@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\user\DashboardController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\WarehouseController;
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\RmaController;
-use App\Http\Controllers\SupplierController;
-use App\Http\Controllers\InventoryController;
-use App\Http\Controllers\RefundController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\user\WarehouseController;
+use App\Http\Controllers\user\CustomerController;
+use App\Http\Controllers\user\RmaController;
+use App\Http\Controllers\user\SupplierController;
+use App\Http\Controllers\user\InventoryController;
+use App\Http\Controllers\user\RefundController;
+use App\Http\Controllers\user\OrderController;
 
 Route::redirect('/', 'login');
 Route::prefix('user')->middleware('auth', 'user')->name('user.')->group(function () {
