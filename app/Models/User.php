@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\user\Inventory;
 use App\Models\user\Warehouse;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -71,5 +72,13 @@ class User extends Authenticatable
     }
 
 
+    public function inventories()
+    {
+        return $this->hasMany(Inventory::class);
+    }
 
+    public function customerInventories()
+    {
+        return $this->hasMany(Inventory::class);
+    }
 }

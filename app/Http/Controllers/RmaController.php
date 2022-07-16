@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Reason;
+use App\Models\Rma;
 use Illuminate\Http\Request;
 
 class RmaController extends Controller
@@ -51,9 +53,10 @@ class RmaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Rma $rma)
     {
-        //
+        $reasons = Reason::where('status', true)->get();
+        return view('user.rma.show', compact('rma','reasons'));
     }
 
     /**
