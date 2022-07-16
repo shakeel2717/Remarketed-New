@@ -23,3 +23,4 @@ Route::prefix('user')->middleware('auth', 'user')->name('user.')->group(function
 });
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/customer.php';

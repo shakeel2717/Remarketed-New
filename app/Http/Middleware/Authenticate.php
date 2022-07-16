@@ -19,9 +19,11 @@ class Authenticate extends Middleware
         }
 
         if ($request->user()->role == 'admin') {
-            // return route('admin.dashboard.index');
+            return route('admin.dashboard.index');
         } elseif ($request->user()->role == 'user') {
             return route('user.dashboard.index');
+        } elseif ($request->user()->role == 'customer') {
+            return route('customer.dashboard.index');
         } else {
             return route('register');
         }

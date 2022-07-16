@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class UserMiddleware
+class CustomerMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,13 +16,12 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == 'user') {
+        if (auth()->user()->role == 'customer') {
             return $next($request);
         } elseif (auth()->user()->role == 'admin') {
             return redirect()->route('admin.dashboard.index');
-        }  elseif (auth()->user()->role == 'customer') {
-            return redirect()->route('customer.dashboard.index');
+        }  elseif (auth()->user()->role == 'user') {
+            return redirect()->route('user.dashboard.index');
         }
-        return redirect()->route('login');
     }
 }
