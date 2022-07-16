@@ -88,8 +88,8 @@ final class AllInventories extends PowerGridComponent
             ->addColumn('serial')
             ->addColumn('model')
             ->addColumn('issue')
-            ->addColumn('rma_link', function (Inventory $inventory) {
-                return "RMA#: {$inventory->rma_id}";
+            ->addColumn('rma_link', function (Inventory $model) {
+                return "<a href=" . route('customer.rma.show', ['rma' => $model->rma_id]) . ">Go to RMA</a>";
             })
             ->addColumn('price')
             ->addColumn('attachment_download', function (Inventory $model) {

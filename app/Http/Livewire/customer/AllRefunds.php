@@ -86,7 +86,7 @@ final class AllRefunds extends PowerGridComponent
             ->addColumn('id')
             ->addColumn('user_id')
             ->addColumn('rma_link', function (Refund $model) {
-                return "RMA#: {$model->rma_id}";
+                return "<a href=" . route('customer.rma.show', ['rma' => $model->rma_id]) . ">Go to RMA</a>";
             })
             ->addColumn('customer_id')
             ->addColumn('amount')

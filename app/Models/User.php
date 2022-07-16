@@ -90,6 +90,11 @@ class User extends Authenticatable
         return $this->hasMany(Inventory::class, 'customer_id');
     }
 
+    public function customerInventoriesRmas($rma_id)
+    {
+        return $this->hasMany(Inventory::class, 'customer_id')->where('rma_id', $rma_id);
+    }
+
     public function refunds()
     {
         return $this->hasMany(Refund::class);
@@ -98,6 +103,11 @@ class User extends Authenticatable
     public function customerRefunds()
     {
         return $this->hasMany(Refund::class, 'customer_id');
+    }
+
+    public function customerRefundsRmas($rma_id)
+    {
+        return $this->hasMany(Refund::class, 'customer_id')->where('rma_id', $rma_id);
     }
 
 

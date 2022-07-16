@@ -10,7 +10,7 @@
                     <div class="row align-items-center gx-2">
                         <div class="col">
                             <span class="js-counter display-4 text-dark"
-                                data-value="24">{{ auth()->user()->customerInventories->sum('price') }}</span>
+                                data-value="24">{{ auth()->user()->customerInventoriesRmas($rma->id)->sum('price') }}</span>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                     <div class="row align-items-center gx-2">
                         <div class="col">
                             <span class="js-counter display-4 text-dark"
-                                data-value="24">{{ auth()->user()->customerRefunds()->sum('amount') }}</span>
+                                data-value="24">{{ auth()->user()->customerRefundsRmas($rma->id)->sum('amount') }}</span>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                     <div class="row align-items-center gx-2">
                         <div class="col">
                             <span class="js-counter display-4 text-dark"
-                                data-value="24">{{ auth()->user()->customerInventories->sum('price') - auth()->user()->customerRefunds->sum('amount') }}</span>
+                                data-value="24">{{ auth()->user()->customerInventoriesRmas($rma->id)->sum('price') - auth()->user()->customerRefundsRmas($rma->id)->sum('amount') }}</span>
                         </div>
                     </div>
                 </div>
