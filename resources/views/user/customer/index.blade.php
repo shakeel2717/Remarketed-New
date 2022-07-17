@@ -3,5 +3,13 @@
 @section('title', 'All Customers')
 
 @section('content')
-    <livewire:user.all-customers />
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <livewire:user.all-customers />
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

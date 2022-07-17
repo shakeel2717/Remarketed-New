@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
 
 
 
-        // Warehouse::factory(10)->create();
+        Warehouse::factory(510)->create();
         // User::factory(10)->create();
 
     }

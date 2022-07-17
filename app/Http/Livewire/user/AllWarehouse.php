@@ -161,6 +161,20 @@ final class AllWarehouse extends PowerGridComponent
         ];
     }
 
+    public function header(): array
+    {
+        return [
+            Button::add('mark-as-active')
+                ->caption(__('Active'))
+                ->class('btn btn-primary btn-sm')
+                ->emit('bulkStatusEvent', []),
+            Button::add('mark-as-inactive')
+                ->caption(__('Inactive'))
+                ->class('btn btn-primary btn-sm')
+                ->emit('bulkInActiveStatusEvent', [])
+        ];
+    }
+
     public function onUpdatedEditable($id, $field, $value): void
     {
         $this->validate();
@@ -169,9 +183,37 @@ final class AllWarehouse extends PowerGridComponent
         ]);
     }
 
+
+    public function bulkStatusEvent($ids)
+    {
+        foreach ($this->checkboxValues as $row) {
+            $warehouse = Warehouse::find($row);
+            $warehouse->status = true;
+            $warehouse->save();
+        }
+        $this->dispatchBrowserEvent('showAlert', ['message' => 'All Selected Warehouses are now Active']);
+    }
+
+    public function bulkInActiveStatusEvent($ids)
+    {
+        foreach ($this->checkboxValues as $row) {
+            $warehouse = Warehouse::find($row);
+            $warehouse->status = false;
+            $warehouse->save();
+        }
+        $this->dispatchBrowserEvent('showAlert', ['message' => 'All Selected Warehouses are now InActive']);
+    }
+
     protected function getListeners()
     {
-        return 'deleteWarehouse';
+        return array_merge(
+            parent::getListeners(),
+            [
+                'deleteWarehouse',
+                'bulkStatusEvent',
+                'bulkInActiveStatusEvent',
+            ]
+        );
     }
 
     public function deleteWarehouse($warehouse)

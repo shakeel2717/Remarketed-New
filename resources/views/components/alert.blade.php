@@ -16,3 +16,8 @@
         swal("oops!", "{!! session('error') !!}", "error");
     </script>
 @endif
+<script>
+    window.addEventListener('showAlert', event => {
+        swal("Success!", event.detail.message, "success");
+    })
+</script>
