@@ -20,5 +20,6 @@ class Inventory extends Model
         'attachment',
         'reason_id',
         'status',
+        'added_by',
     ];
 }

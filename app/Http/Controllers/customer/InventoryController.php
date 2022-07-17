@@ -61,6 +61,8 @@ class InventoryController extends Controller
         $validated['user_id'] = auth()->user()->user_id;
         $validated['customer_id'] = auth()->user()->id;
         $validated['attachment'] = $attachment_name;
+        $validated['status'] = 'pending';
+        $validated['added_by'] = 'customer';
 
         $inventory = Inventory::create($validated);
 

@@ -23,7 +23,9 @@ return new class extends Migration
             $table->string('model');
             $table->string('issue');
             $table->string('attachment')->nullable();
-            $table->float('price');
+            $table->double('price');
+            $table->enum('status', ['pending', 'approved', 'rejected'])->default('approved');
+            $table->string('added_by')->default('user');
             $table->timestamps();
         });
     }

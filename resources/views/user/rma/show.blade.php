@@ -129,6 +129,7 @@
                                             <th scope="col">Serial</th>
                                             <th scope="col">Model</th>
                                             <th scope="col">Issue</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">Sale Price</th>
                                             <th scope="col">Attachment</th>
                                             <th scope="col">Date</th>
@@ -141,6 +142,7 @@
                                                 <td>{{ $Inventory->serial }}</td>
                                                 <td>{{ $Inventory->model }}</td>
                                                 <td>{{ $Inventory->issue }}</td>
+                                                <td class="text-uppercase"><span class="badge badge-primary">{{ $Inventory->status }}</span></td>
                                                 <td>{{ number_format($Inventory->price, 2) }}</td>
                                                 <td>
                                                     @if ($Inventory->attachment != 'default.jpg')
