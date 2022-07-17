@@ -18,7 +18,8 @@ class WarehouseFactory extends Factory
     {
         return [
             'user_id' => 1,
-            'name' => fake()->name(),
+            // generate fake city names
+            'name' => fake()->city(),
             'location' => fake()->country(),
             'status' => fake()->boolean(),
         ];

@@ -121,46 +121,7 @@
                     <div class="tab-pane fade p-4 active show" id="lnventoryData" role="tabpanel"
                         aria-labelledby="nav-resultTab1">
                         <div class="">
-                            <div class="table-responsive">
-                                <table
-                                    class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">Serial</th>
-                                            <th scope="col">Model</th>
-                                            <th scope="col">Issue</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Sale Price</th>
-                                            <th scope="col">Attachment</th>
-                                            <th scope="col">Date</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        @forelse ($rma->customer->customerInventories as $Inventory)
-                                            <tr>
-                                                <td>{{ $Inventory->serial }}</td>
-                                                <td>{{ $Inventory->model }}</td>
-                                                <td>{{ $Inventory->issue }}</td>
-                                                <td class="text-uppercase"><span class="badge badge-primary">{{ $Inventory->status }}</span></td>
-                                                <td>{{ number_format($Inventory->price, 2) }}</td>
-                                                <td>
-                                                    @if ($Inventory->attachment != 'default.jpg')
-                                                        <a
-                                                            href="{{ asset('attachments/') }}/{{ $Inventory->attachment }}">Download</a>
-                                                    @else
-                                                        No Attatchment
-                                                    @endif
-                                                </td>
-                                                <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($Inventory->created_at))->diffForHumans() }}
-                                                </td>
-                                            </tr>
-                                        @empty
-                                            <p class="text-center">No Record Found</p>
-                                        @endforelse
-                                    </tbody>
-                                </table>
-                            </div>
+                            <livewire:user.all-inventory/>
                         </div>
                     </div>
 

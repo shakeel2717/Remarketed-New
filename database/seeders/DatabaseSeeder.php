@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
 
 
         Warehouse::factory(510)->create();
-        // User::factory(10)->create();
+        User::factory(450)->create();
 
     }
 }
