@@ -18,7 +18,7 @@ class OrderController extends Controller
     public function index()
     {
         $Order = Order::all();
-        return view('user.Order.index', [
+        return view('user.order.index', [
             'Orders' => $Order,
         ]);
     }
@@ -30,7 +30,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('user.Order.create');
+        return view('user.order.create');
     }
 
     /**
@@ -60,7 +60,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        return view('user.Order.show', [
+        return view('user.order.show', [
             'Order' => $order,
         ]);
     }
@@ -73,7 +73,7 @@ class OrderController extends Controller
      */
     public function edit(Order $order)
     {
-        return view('user.Order.edit', [
+        return view('user.order.edit', [
             'Order' => $order,
         ]);
     }

@@ -16,7 +16,7 @@ class WarehouseController extends Controller
     public function index()
     {
         $Warehouse = Warehouse::all();
-        return view('user.Warehouse.index', [
+        return view('user.warehouse.index', [
             'Warehouses' => $Warehouse,
         ]);
     }
@@ -28,7 +28,7 @@ class WarehouseController extends Controller
      */
     public function create()
     {
-        return view('user.Warehouse.create');
+        return view('user.warehouse.create');
     }
 
     /**
@@ -62,7 +62,7 @@ class WarehouseController extends Controller
      */
     public function show(Warehouse $warehouse)
     {
-        return view('user.Warehouse.show', [
+        return view('user.warehouse.show', [
             'Warehouse' => $warehouse,
         ]);
     }
@@ -75,7 +75,7 @@ class WarehouseController extends Controller
      */
     public function edit(Warehouse $warehouse)
     {
-        return view('user.Warehouse.edit', [
+        return view('user.warehouse.edit', [
             'Warehouse' => $warehouse,
         ]);
     }

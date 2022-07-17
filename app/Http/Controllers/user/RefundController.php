@@ -19,7 +19,7 @@ class RefundController extends Controller
     public function index()
     {
         $Refund = Refund::all();
-        return view('user.Refund.index',[
+        return view('user.refund.index',[
             'Refunds' => $Refund,
         ]);
     }
@@ -31,7 +31,7 @@ class RefundController extends Controller
      */
     public function create()
     {
-        return view('user.Refund.create');
+        return view('user.refund.create');
     }
 
     /**
@@ -79,7 +79,7 @@ class RefundController extends Controller
      */
     public function show(Refund $refund)
     {
-        return view('user.Refund.show',[
+        return view('user.refund.show',[
             'Refund' => $refund,
         ]);
     }
@@ -92,7 +92,7 @@ class RefundController extends Controller
      */
     public function edit(Refund $refund)
     {
-        return view('user.Refund.edit',[
+        return view('user.refund.edit',[
             'Refund' => $refund,
         ]);
     }

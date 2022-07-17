@@ -19,7 +19,7 @@ class InventoryController extends Controller
     public function index()
     {
         $Inventory = Inventory::all();
-        return view('user.Inventory.index', [
+        return view('user.inventory.index', [
             'Inventorys' => $Inventory,
         ]);
     }
@@ -31,7 +31,7 @@ class InventoryController extends Controller
      */
     public function create()
     {
-        return view('user.Inventory.create');
+        return view('user.inventory.create');
     }
 
     /**
@@ -80,7 +80,7 @@ class InventoryController extends Controller
      */
     public function show(Inventory $inventory)
     {
-        return view('user.Inventory.show', [
+        return view('user.inventory.show', [
             'Inventory' => $inventory,
         ]);
     }
@@ -93,7 +93,7 @@ class InventoryController extends Controller
      */
     public function edit(Inventory $inventory)
     {
-        return view('user.Inventory.edit', [
+        return view('user.inventory.edit', [
             'Inventory' => $inventory,
         ]);
     }
