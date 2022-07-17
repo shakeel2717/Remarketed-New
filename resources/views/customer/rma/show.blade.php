@@ -59,7 +59,25 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 mb-3">
+        <div class="col-lg-4 mb-3 mb-lg-5">
+            <a class="card card-hover-shadow mb-4" id="addInventory" href="javascript:;">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <img class="avatar avatar-xl mr-4" src="{{ asset('assets/svg/illustrations/create.svg') }}"
+                            alt="Image Description">
+                        <div class="media-body">
+                            <h3 class="text-hover-primary mb-1">Inventory</h3>
+                            <span class="text-body">Add a new Inventory</span>
+                        </div>
+                        <div class="ml-2 text-right">
+                            <i class="tio-chevron-right tio-lg text-body text-hover-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </a>
+        </div>
+        <div class="col-md-8 mb-3">
             <div class="card h-100">
                 <div class="card-header">
                     <ul class="nav nav-segment" id="navTab1" role="tablist">
@@ -166,5 +184,15 @@
                 <!-- End Tab Content -->
             </div>
         </div>
+        <x-customer.add-inventory :rma="$rma" :reasons="$reasons" />
     </div>
+@endsection
+@section('footer')
+    <script>
+        $(document).ready(function() {
+            $("#addInventory").click(function() {
+                $('#customersGuideModal').modal('show')
+            });
+        });
+    </script>
 @endsection

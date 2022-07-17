@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Reason;
 use App\Models\Rma;
 use Illuminate\Http\Request;
 
@@ -47,7 +48,8 @@ class RmaController extends Controller
      */
     public function show(Rma $rma)
     {
-        return view('customer.rma.show', compact('rma'));
+        $reasons = Reason::where('status', true)->get();
+        return view('customer.rma.show', compact('rma', 'reasons'));
     }
 
     /**

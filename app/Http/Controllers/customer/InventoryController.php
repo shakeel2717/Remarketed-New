@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\customer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Rma;
+use App\Models\user\Inventory;
 use Illuminate\Http\Request;
 
 class InventoryController extends Controller
@@ -35,7 +37,34 @@ class InventoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'rma_id' => 'required|integer|exists:rmas,id',
+            'serial' => 'required|string',
+            'model' => 'required|string',
+            'issue' => 'required|string',
+            'price' => 'required|numeric',
+            'attachment' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10048',
+            'reason_id' => 'required|numeric',
+        ]);
+
+        if ($request->hasFile('attachment')) {
+            // getting attatchment name
+            $attachment = $request->file('attachment');
+            $attachment_name = time() . '.' . $attachment->getClientOriginalExtension();
+            $attachment->move(public_path('attachments'), $attachment_name);
+        } else {
+            $attachment_name = 'default.jpg';
+        }
+
+        $rma = Rma::find($validated['rma_id']);
+
+        $validated['user_id'] = auth()->user()->user_id;
+        $validated['customer_id'] = auth()->user()->id;
+        $validated['attachment'] = $attachment_name;
+
+        $inventory = Inventory::create($validated);
+
+        return redirect()->back()->with('success', 'Inventory Added Successfully');
     }
 
     /**
