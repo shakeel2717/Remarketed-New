@@ -9,7 +9,8 @@
 
                     <div class="row align-items-center gx-2">
                         <div class="col">
-                            <span class="js-counter display-4 text-dark" data-value="24">{{ $rma->customer->customerInventoriesRmas($rma->id)->sum('price') }}</span>
+                            <span class="js-counter display-4 text-dark"
+                                data-value="24">{{ $rma->customer->customerInventoriesRmas($rma->id)->sum('price') }}</span>
                         </div>
                     </div>
                 </div>
@@ -22,7 +23,8 @@
 
                     <div class="row align-items-center gx-2">
                         <div class="col">
-                            <span class="js-counter display-4 text-dark" data-value="24">{{ $rma->customer->customerRefundsRmas($rma->id)->sum('amount') }}</span>
+                            <span class="js-counter display-4 text-dark"
+                                data-value="24">{{ $rma->customer->customerRefundsRmas($rma->id)->sum('amount') }}</span>
                         </div>
                     </div>
                 </div>
@@ -35,7 +37,8 @@
 
                     <div class="row align-items-center gx-2">
                         <div class="col">
-                            <span class="js-counter display-4 text-dark" data-value="24">{{ $rma->customer->customerInventoriesRmas($rma->id)->sum('price') - $rma->customer->customerRefundsRmas($rma->id)->sum('amount') }}</span>
+                            <span class="js-counter display-4 text-dark"
+                                data-value="24">{{ $rma->customer->customerInventoriesRmas($rma->id)->sum('price') - $rma->customer->customerRefundsRmas($rma->id)->sum('amount') }}</span>
                         </div>
                     </div>
                 </div>
@@ -121,7 +124,7 @@
                     <div class="tab-pane fade p-4 active show" id="lnventoryData" role="tabpanel"
                         aria-labelledby="nav-resultTab1">
                         <div class="">
-                            <livewire:user.all-inventory/>
+                            <livewire:user.all-inventory />
                         </div>
                     </div>
 
@@ -176,7 +179,7 @@
     </div>
     <x-add-inventory :rma="$rma" :reasons="$reasons" />
     <x-add-refund :rma="$rma" />
-    {{-- <x-import-rma-modal /> --}}
+    <x-user.import-Inventory :rma="$rma" />
 @endsection
 @section('footer')
     <script>

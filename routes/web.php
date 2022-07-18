@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ImportDataController;
 use App\Http\Controllers\user\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\user\WarehouseController;
@@ -20,6 +21,7 @@ Route::prefix('user')->middleware('auth', 'user')->name('user.')->group(function
     Route::resource('inventory', InventoryController::class);
     Route::resource('refund', RefundController::class);
     Route::resource('order', OrderController::class);
+    Route::resource('import', ImportDataController::class);
 });
 
 require __DIR__ . '/auth.php';

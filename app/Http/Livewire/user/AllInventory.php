@@ -148,11 +148,14 @@ final class AllInventory extends PowerGridComponent
 
             Column::make('ISSUE', 'issue'),
 
+            Column::make('Reason', 'reason_id'),
+
             Column::make('PRICE', 'price_format'),
 
             Column::make('ATTACHMENT', 'attachment_link'),
 
-            Column::make('STATUS', 'status_badge'),
+            Column::make('STATUS', 'status')
+                ->bodyAttribute('text-primary text-uppercase'),
 
             Column::make('CREATED AT', 'created_at_formatted', 'created_at'),
 
