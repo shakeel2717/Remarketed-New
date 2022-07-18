@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Reason;
+use App\Models\Rma;
 use App\Models\User;
+use App\Models\user\Inventory;
 use App\Models\user\Warehouse;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -63,8 +65,10 @@ class DatabaseSeeder extends Seeder
 
 
 
-        Warehouse::factory(510)->create();
-        User::factory(450)->create();
+        Warehouse::factory(2)->create();
+        User::factory(2)->create();
+        // Rma::factory(2)->create();
+        // Inventory::factory(10)->create();
 
     }
 }

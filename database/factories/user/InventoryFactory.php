@@ -17,7 +17,15 @@ class InventoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'rma_id' => 1,
+            'user_id' => 1,
+            'customer_id' => $this->faker->numberBetween(1, 2),
+            'serial' => $this->faker->randomNumber(1),
+            'model' => $this->faker->randomNumber(1),
+            'issue' => fake()->name(),
+            'price' => $this->faker->numberBetween(10, 1000),
+            'status' => $this->faker->randomElement(['pending', 'approved', 'rejected']),
+            'reason_id' => $this->faker->randomElement(['1', '2', '3', '4']),
         ];
     }
 }
