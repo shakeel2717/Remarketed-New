@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rma;
 use App\Models\user\Inventory;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Arr;
 
 class ImportDataController extends Controller
 {
@@ -41,6 +42,37 @@ class ImportDataController extends Controller
             'rma_id' => 'required|integer|exists:rmas,id',
         ]);
 
+        $rma = Rma::findOrFail($validated['rma_id']);
+
+        $inventories = array_map('str_getcsv', file($request->attachment));
+        $a = false;
+
+        foreach ($inventories as $inventory) {
+            $serial = $inventory[0];
+            $model = $inventory[1];
+            $issue = $inventory[2];
+            $reason_id = $inventory[3];
+            $price = $inventory[4];
+            $status = $inventory[6];
+            if ($a) {
+                // adding this into database
+                $inventory = new Inventory();
+                $inventory->user_id = auth()->user()->id;
+                $inventory->rma_id = $validated['rma_id'];
+                $inventory->customer_id = $rma->customer_id;
+                $inventory->reason_id = $reason_id;
+                $inventory->serial = $serial;
+                $inventory->model = $model;
+                $inventory->issue = $issue;
+                $inventory->price = $price;
+                $inventory->status = $status;
+                $inventory->added_by = 'user';
+                $inventory->save();
+            }
+            $a = true;
+        }
+
+        return redirect()->back()->with('success', 'Inventory imported successfully');
     }
 
     /**

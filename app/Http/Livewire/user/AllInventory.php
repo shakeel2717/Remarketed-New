@@ -94,7 +94,7 @@ final class AllInventory extends PowerGridComponent
                 return number_format($model->price, 2);
             })
             ->addColumn('attachment_link', function (Inventory $model) {
-                if ($model->attachment != 'default.jpg') {
+                if ($model->attachment != 'default.jpg' && $model->attachment != null) {
                     return "<a href=" . asset('attachments/') . "/" . $model->attachment . " >Download</a>";
                 } else {
                     return "No Attachment";
