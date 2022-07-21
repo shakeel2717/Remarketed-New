@@ -52,6 +52,9 @@ class CustomerController extends Controller
         $task->user_id = auth()->user()->id;
         $task->name = $validated['name'];
         $task->email = $validated['email'];
+        $task->phone = $validated['phone'];
+        $task->country = $validated['country'];
+        $task->address = $validated['address'];
         $task->password = Hash::make($validated['password']);
         $task->status = true;
         $task->role = 'customer';
