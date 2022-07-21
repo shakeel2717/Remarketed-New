@@ -130,46 +130,7 @@
 
                     <div class="tab-pane fade p-4" id="refundData" role="tabpanel" aria-labelledby="nav-htmlTab1">
                         <div class="">
-                            <!-- Table -->
-                            <div class="table-responsive">
-                                <table
-                                    class="table table-borderless table-thead-bordered table-nowrap table-align-middle card-table">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">Payment Method</th>
-                                            <th scope="col">TX ID</th>
-                                            <th scope="col">Note</th>
-                                            <th scope="col">Amount</th>
-                                            <th scope="col">CREDIT NOTE</th>
-                                            <th scope="col">Date</th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        @forelse ($rma->customer->customerRefunds as $refund)
-                                            <tr>
-                                                <td>{{ $refund->method }}</td>
-                                                <td>{{ $refund->txid }}</td>
-                                                <td>{{ $refund->note }}</td>
-                                                <td>{{ $refund->amount }}</td>
-                                                <td>
-                                                    @if ($refund->attachment != null)
-                                                        <a
-                                                            href="{{ asset('attachments/refunds') }}/{{ $refund->attachment }}">Download</a>
-                                                    @else
-                                                        No Attatchment
-                                                    @endif
-                                                </td>
-                                                <td>{{ \Carbon\Carbon::createFromTimeStamp(strtotime($refund->created_at))->diffForHumans() }}
-                                                </td>
-                                            </tr>
-                                        @empty
-                                            <p class="text-center">No Record Found</p>
-                                        @endforelse
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- End Table -->
+                            <livewire:user.all-refunds/>
                         </div>
                     </div>
                 </div>
