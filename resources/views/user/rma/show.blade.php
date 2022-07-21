@@ -140,7 +140,7 @@
     </div>
     <x-add-inventory :rma="$rma" :reasons="$reasons" />
     <x-add-refund :rma="$rma" />
-    <x-user.import-Inventory :rma="$rma" />
+    <x-user.import-inventory :rma="$rma" />
 @endsection
 @section('footer')
     <script>
