@@ -58,7 +58,7 @@
             title="Layouts" data-placement="left">
             <i class="tio-user nav-icon"></i>
             <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add
-                new</span>
+                Customer</span>
         </a>
     </li>
 
@@ -90,7 +90,7 @@
             title="Layouts" data-placement="left">
             <i class="tio-neighborhood nav-icon"></i>
             <span class="navbar-vertical-aside-mini-mode-hidden-elements text-truncate">Add
-                new</span>
+                Supplier</span>
         </a>
     </li>
     <li class="nav-item ">
