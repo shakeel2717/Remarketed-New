@@ -101,25 +101,6 @@ final class AllInventory extends PowerGridComponent
                 }
             })
             ->addColumn('reason_id')
-            ->addColumn('status_badge', function (Inventory $model) {
-                switch ($model->status) {
-                    case 'approved':
-                        return "<span class='badge badge-primary text-uppercase'>" . $model->status . "</span>";
-                        break;
-
-                    case 'pending':
-                        return "<span class='badge badge-info text-uppercase'>" . $model->status . "</span>";
-                        break;
-
-                    case 'rejected':
-                        return "<span class='badge badge-danger text-uppercase'>" . $model->status . "</span>";
-                        break;
-
-                    default:
-                        # code...
-                        break;
-                }
-            })
             ->addColumn('added_by')
             ->addColumn('created_at_formatted', fn (Inventory $model) => Carbon::parse($model->created_at)->format('d/m/Y H:i:s'))
             ->addColumn('updated_at_formatted', fn (Inventory $model) => Carbon::parse($model->updated_at)->format('d/m/Y H:i:s'));
@@ -142,20 +123,26 @@ final class AllInventory extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('SERIAL', 'serial'),
+            Column::make('SERIAL', 'serial')
+                ->searchable(),
 
-            Column::make('MODEL', 'model'),
+            Column::make('MODEL', 'model')
+                ->searchable(),
 
-            Column::make('ISSUE', 'issue'),
+            Column::make('ISSUE', 'issue')
+                ->searchable(),
 
-            Column::make('Reason', 'reason_id'),
+            Column::make('Reason', 'reason_id')
+                ->searchable(),
 
-            Column::make('PRICE', 'price_format'),
+            Column::make('PRICE', 'price_format', 'price')
+                ->searchable(),
 
             Column::make('ATTACHMENT', 'attachment_link'),
 
             Column::make('STATUS', 'status')
-                ->bodyAttribute('text-primary text-uppercase'),
+                ->bodyAttribute('text-primary text-uppercase')
+                ->searchable(),
 
             Column::make('CREATED AT', 'created_at_formatted', 'created_at'),
 
